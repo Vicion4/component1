@@ -15,7 +15,9 @@ public class InputHandler : MonoBehaviour
 
         _jumpAction.performed += OnJumpPerformed;
 
-        Cursor.visible = false; 
+        Cursor.visible = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class InputHandler : MonoBehaviour
         Vector2 movementVector = _moveAction.ReadValue<Vector2>();
         CharacterController.Move(movementVector);
 
-        Vector2 lookVector = _moveAction.ReadValue<Vector2>();
+        Vector2 lookVector = _lookAction.ReadValue<Vector2>();
         CharacterController.Rotate(lookVector);
     }
 
